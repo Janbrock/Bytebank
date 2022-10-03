@@ -1,4 +1,4 @@
 # Bytebank
-Projeto banco Bytebank
+## Projeto banco Bytebank
 
-Estudo e aplicação de programação aplicada a objetos.
+ - Estudo e aplicação de programação aplicada a objetos.

@@ -5,17 +5,19 @@ fun main() {
 
     contaFran.titular = "Fran"
     contaFran.numero = 1000
+    contaFran.setSaldo(100.0)
 
     contaAlex.titular = "Alex"
     contaAlex.numero = 1001
+    contaAlex.setSaldo(50.0)
 
     println("Depósito na conta da Fran")
     contaFran.deposita(100.0)
-    println(contaFran.saldo)
+    println(contaFran.getSaldo())
 
     println("Saque na conta da Fran")
     contaFran.saca(50.0)
-    println(contaFran.saldo)
+    println(contaFran.getSaldo())
 
     println("Transferência da conta da Fran para a do Alex")
     if (contaFran.transfere(50.0, contaAlex)) {
@@ -23,14 +25,14 @@ fun main() {
     } else {
         println("Falha na transferência!")
     }
-    println("Saldo da conta da Fran: ${contaFran.saldo}")
-    println("Saldo da conta da Alex: ${contaAlex.saldo}")
+    println("Saldo da conta da Fran: ${contaFran.getSaldo()}")
+    println("Saldo da conta da Alex: ${contaAlex.getSaldo()}")
 }
 
-class Conta() {
+class Conta {
     var titular = ""
     var numero = 0
-    var saldo = 0.0
+    private var saldo = 0.0
 
     fun deposita(valor: Double) {
         this.saldo += valor
@@ -53,6 +55,15 @@ class Conta() {
         return false
 
 
+    }
+
+    fun getSaldo(): Double {
+        return saldo
+    }
+    fun setSaldo(valor: Double) {
+        if (valor > 0) {
+            saldo = valor
+        }
     }
 }
 

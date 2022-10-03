@@ -1,8 +1,9 @@
-open class Gerente(
+class Diretor(
     nome: String,
     cpf: String,
     salario: Double,
-    val senha: Int
+    val senha: Int,
+    val plr : Double
 ) : Funcionario(
     nome = nome,
     cpf = cpf,
@@ -10,7 +11,7 @@ open class Gerente(
 ) {
     override val bonificacao: Double
         get() {
-            return salario * 0.2
+            return salario * 0.3
         }
 
     fun autentica(senha: Int): Boolean {

@@ -3,9 +3,16 @@ fun main() {
 
     val contaFran = Conta("Fran", 1000)
     contaFran.deposita(100.0)
+    println(contaFran.titular)
+    println(contaFran.numero)
+    println(contaFran.saldo)
+
 
     val contaAlex = Conta("Alex", 1001)
     contaAlex.deposita(50.0)
+    println(contaAlex.titular)
+    println(contaAlex.numero)
+    println(contaAlex.saldo)
 
     println("Depósito na conta da Fran")
     contaFran.deposita(-200.0)
@@ -25,16 +32,17 @@ fun main() {
     println("Saldo da conta da Alex: ${contaAlex.saldo}")
 }
 
-class Conta {
-    var titular = ""
-    var numero = 0
+class Conta(
+    var titular: String,
+    var numero: Int
+) {
     var saldo = 0.0
         private set
 
-    constructor(titular: String, numero: Int) {
-        this.titular = titular
-        this.numero = numero
-    }
+//    constructor(titular: String, numero: Int) {
+//        this.titular = titular
+//        this.numero = numero
+//    }
 
     fun deposita(valor: Double) {
         if (valor > 0) {

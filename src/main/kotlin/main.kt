@@ -1,14 +1,10 @@
 fun main() {
     println("Bem vindo ao Bytebank!")
-    val contaFran = Conta()
-    val contaAlex = Conta()
 
-    contaFran.titular = "Fran"
-    contaFran.numero = 1000
+    val contaFran = Conta("Fran", 1000)
     contaFran.deposita(100.0)
 
-    contaAlex.titular = "Alex"
-    contaAlex.numero = 1001
+    val contaAlex = Conta("Alex", 1001)
     contaAlex.deposita(50.0)
 
     println("Depósito na conta da Fran")
@@ -34,6 +30,11 @@ class Conta {
     var numero = 0
     var saldo = 0.0
         private set
+
+    constructor(titular: String, numero: Int) {
+        this.titular = titular
+        this.numero = numero
+    }
 
     fun deposita(valor: Double) {
         if (valor > 0) {
